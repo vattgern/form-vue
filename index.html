@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-Задание-1</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="auth__block" >
+            <h1 class="auth__title">Авторизация</h1>
+            <div class="auth__form">
+                <form action="">
+                    <div id="forNum">
+                        <label for="number">Телефон:</label>
+                        <input type="text" name="number" 
+                            id="number" 
+                            placeholder="Введите телефон"
+                            v-model="text"
+                            >
+                        <!-- ! Проверка на телефон -->
+                        <small id="numCheck" :class="{ doneAll : isRightNum }">
+                            <h2>
+                                Телефон должен быть:
+                            </h2>
+                            <ul>
+                                <li :class="{ done : isAllNumber }">
+                                    Должен содержть только цифры
+                                </li>
+                                <li :class="{ done : isHaveLength }">
+                                    Должен содержть 11 символов
+                                </li>
+                            </ul>
+                        </small>
+                    </div>
+                    <div id="forPass">
+                        <label for="pass">Пароль:</label>
+                        <input type="password" 
+                        name="pass" 
+                        id="pass" 
+                        placeholder="Введите пароль"
+                        v-model="password">
+                        <!-- ! Проверка пароля -->
+                        <small id="passCheck" :class="{ doneAll : isAllTrue }">
+                            <h2>
+                                Пароль должен быть:
+                            </h2>
+                            <ul>
+                                <li>
+                                    <span :class="{ done : isMinLength }">Минимум 6 символов</span>,
+                                </li>
+                                <li>
+                                    <span :class="{ done : isHaveNumber }">Содержать цифру(-ы)</span>
+                                </li>
+                                <li>
+                                    <span :class="{ done : isHaveSpecial }">Содержать спец. символ(-ы)</span>
+                                </li>
+                                <li>
+                                    <span :class="{ done : isMaxLength }">
+                                        Максимум 30 символов
+                                    </span>
+                                </li>
+                            </ul>
+                        </small>
+                    </div>
+                    <button class="submit__btn">
+                        Войти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
