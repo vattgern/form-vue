@@ -51,9 +51,12 @@ const auth = Vue.createApp({
                     }
                 }
                 if(this.password == this.dataBase["password"][index]){
-                    console.log("Вы вошли")
+                    this.password = '';
+                    this.number = '';
                     isLogin = true;
                 } else{
+                    this.password = '';
+                    this.number = '';
                     this.message.notFound = false;
                 }
             } else{
