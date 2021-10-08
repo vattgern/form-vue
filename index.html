@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="auth__block" >
+        <div class="auth__block" id="auth">
             <h1 class="auth__title">Авторизация</h1>
             <div class="auth__form">
-                <section action="" id="auth">
+                <section>
                     <div id="forNum">
                         <label for="number">Телефон:</label>
                         <input type="text" name="number" id="number" placeholder="Введите телефон"
@@ -72,6 +72,7 @@
                     </div>
                 </section>
             </div>
+            <personal-blog v-if="isLogin"></personal-blog>
         </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>

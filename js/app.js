@@ -53,7 +53,7 @@ const auth = Vue.createApp({
                 if(this.password == this.dataBase["password"][index]){
                     this.password = '';
                     this.number = '';
-                    isLogin = true;
+                    this.isLogin = true;
                 } else{
                     this.password = '';
                     this.number = '';
@@ -64,6 +64,24 @@ const auth = Vue.createApp({
                 this.number = '';
                 this.backTo = false;
             }
+        },
+        exit(){
+            this.isLogin = false;
         }
     },
-}).mount("#auth");
+}).component('personal-blog',{
+    methods: {
+        dead(){
+            let block = document.querySelector(".personal__blog").remove();
+        }
+    },
+    template: `
+        <div class="personal__blog">
+            <h1>Вы попали за защищенную страницу</h1>
+            <button @click="dead">
+                Выход
+            </button>
+        </div>
+    `
+});
+auth.mount("#auth");
