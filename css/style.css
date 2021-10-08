@@ -55,22 +55,22 @@ body{
     justify-content: center;
     align-items: center;
 }
-.auth__form form{
+.auth__form section{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-.auth__form form div{
+.auth__form section div{
     display: flex;
     height: 30%;
     flex-direction: column;
 }
-.auth__form form label{
+.auth__form section label{
     font-size: 1.05rem;
 }
-.auth__form form input{
+.auth__form section input{
     height: 50%;
     border: none;
     outline: none;
@@ -80,7 +80,7 @@ body{
     border-bottom: 2px grey solid;
     font-size: 1rem;
 }
-.auth__form form input:focus{
+.auth__form section input:focus{
     border-color: #212121;
 }
 .submit__btn{
@@ -121,4 +121,33 @@ body{
 .doneAll{
     opacity: 0;
     transform: scale(0);
+}
+.messageBox{
+    transition: all 0.4s ease-in-out;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.messageBox strong{
+    text-align: center;
+    animation: flow 10s ease-in-out infinite;
+    background: linear-gradient(-60deg, #904e95,#904e95,#e73c7e,#e73c7e);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes flow {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
