@@ -12,12 +12,11 @@
         <div class="auth__block" >
             <h1 class="auth__title">Авторизация</h1>
             <div class="auth__form">
-                <form action="">
+                <section action="" id="auth">
                     <div id="forNum">
                         <label for="number">Телефон:</label>
                         <input type="text" name="number" id="number" placeholder="Введите телефон"
-                            v-model="text"
-                            >
+                            v-model="number">
                         <!-- ! Проверка на телефон -->
                         <small id="numCheck" :class="{ doneAll : isRightNum }">
                             <h2>
@@ -60,10 +59,18 @@
                             </ul>
                         </small>
                     </div>
-                    <button class="submit__btn">
+                    <button class="submit__btn" @click="checkForm">
                         Войти
                     </button>
-                </form>
+                    <div :class = "{message}">
+                        <strong :class="{ doneAll : this.message.backTo }">
+                            Неверен телефон или пароль
+                        </strong>
+                        <strong :class="{ doneAll : this.message.notFound }">
+                            Неверный пароль
+                        </strong>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
