@@ -1,12 +1,28 @@
-const password = Vue.createApp({
+const auth = Vue.createApp({
     data() {
         return {
+            dataBase: {
+                "number" : [8986858415, 89613986822],
+                "password" : ["Zirael4587&", "mum4587&"]
+            },
+            isLogin: false,
+            message: {
+                // * Вывод о ненайденном пользователе
+                notFound: true,
+                // * Вывод окна о пароле и телефоне
+                backTo: true,
+                'messageBox': true
+            },
             password: '',
             isMinLength: false,
             isHaveNumber: false,
             isHaveSpecial: false,
             isMaxLength: false,
-            isAllTrue: false
+            isAllTrue: false,
+            number: '',
+            isAllNumber: false,
+            isHaveLength: false,
+            isRightNum: false,
         }
     },
     watch:{
@@ -17,25 +33,34 @@ const password = Vue.createApp({
             this.isMaxLength = (this.password.length < 31);
             this.isAllTrue = (this.isHaveNumber == true) && (this.isMinLength == true)
                             && (this.isMaxLength == true) && (this.isHaveSpecial == true);
-        }
-    }
-});
-password.mount('#forPass');
-const callNumber = Vue.createApp({
-    data() {
-        return {
-            text: '',
-            isAllNumber: false,
-            isHaveLength: false,
-            isRightNum: false,
-        }
-    },
-    watch:{
-        text(){
-            this.isHaveLength = (this.text.length == 11);
-            this.isAllNumber = /[0-9]{3}[0-9]{3}[0-9]{4}/.test(this.text);
+        },
+        number(){
+            this.isHaveLength = (this.number.length == 11);
+            this.isAllNumber = /[0-9]{3}[0-9]{3}[0-9]{4}/.test(this.number);
             this.isRightNum = (this.isHaveLength == true) && (this.isAllNumber == true);
         }
-    }
-});
-callNumber.mount("#forNum");
+    },
+    methods: {
+        checkForm(){
+            if(this.isAllTrue && this.isRightNum){
+                this.backTo = true;
+                let index = 0;
+                for (const elem of this.dataBase["number"]) {
+                    if(this.number == elem){
+                        index++;
+                    }
+                }
+                if(this.password == this.dataBase["password"][index]){
+                    console.log("Вы вошли")
+                    isLogin = true;
+                } else{
+                    this.message.notFound = false;
+                }
+            } else{
+                this.password = '';
+                this.number = '';
+                this.backTo = false;
+            }
+        }
+    },
+}).mount("#auth");
