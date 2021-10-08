@@ -15,9 +15,7 @@
                 <form action="">
                     <div id="forNum">
                         <label for="number">Телефон:</label>
-                        <input type="text" name="number" 
-                            id="number" 
-                            placeholder="Введите телефон"
+                        <input type="text" name="number" id="number" placeholder="Введите телефон"
                             v-model="text"
                             >
                         <!-- ! Проверка на телефон -->
@@ -37,10 +35,7 @@
                     </div>
                     <div id="forPass">
                         <label for="pass">Пароль:</label>
-                        <input type="password" 
-                        name="pass" 
-                        id="pass" 
-                        placeholder="Введите пароль"
+                        <input type="password" name="pass" id="pass" placeholder="Введите пароль"
                         v-model="password">
                         <!-- ! Проверка пароля -->
                         <small id="passCheck" :class="{ doneAll : isAllTrue }">
