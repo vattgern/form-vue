@@ -1,7 +1,7 @@
 const auth = Vue.createApp({});
 auth.component('personal-blog',{
     template: `
-    <div class="auth__form">
+            <div class="auth__form">
                 <section>
                     <div id="forNum">
                         <label for="number">Телефон:</label>
